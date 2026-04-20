@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>QR Bagasi</title>
+</head>
+
+<body style="text-align:center; font-family:arial;margin-top:100px;">
+
+<h1> Bagasi Dijumpai</h1>
+<p>Sila Tekan Butang Bawah</p>
+
+<button onclick="Lokasi()"style="padding:15px;">Hantar Lokasi</button>
+
+<p id="status"></p>
+
+<script>
+function Lokasi() {
+navigator .geolocation.getCurrentPosition(
+function(pos){
+document.getElementById("status").innerHTML =
+"Lokasi Berjaya Dihantar!<br>Lat:" +
+pos.coords.latitude +
+"<br>Long: " +
+pos.coords.longitude;
+},
+
+function(){
+document.getElementById ("status").innerHTML=
+"Lokasi Tidak Dibenarkan";
+}
+);
+}
+</script>
+
+</body>
+</html>
